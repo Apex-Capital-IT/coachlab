@@ -8,9 +8,9 @@ export const metadata: Metadata = {
       "CoachLab Mongolia is a platform for coaches and athletes to connect and share knowledge.",
     images: [
       {
-        url: "https://www.facebook.com/photo/?fbid=122145638060088063&set=a.122110364594088063",
+        url: "/Logo.png",
         width: 32,
-        height: 32,
+        height: 16,
         alt: "lab Logo",
       },
     ],
