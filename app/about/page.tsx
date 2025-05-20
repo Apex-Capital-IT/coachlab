@@ -16,7 +16,9 @@ export default function AboutPage() {
       <main className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
-          <div className="bg-[#1782e0] rounded-3xl p-8 md:p-10 relative overflow-hidden mb-8">
+          <div className="bg-gradient-to-bl from-[white] via-[#004a85] to-[#1782e0] rounded-3xl p-8 md:p-10 relative overflow-hidden mb-8">
+            <div className="absolute inset-x-0 bottom-0 h-2/4 bg-gradient-to-t from-white via-[#1782e0]/40 to-transparent"></div>
+
             <div className="relative z-10 max-w-2xl">
               <div className="inline-flex items-center justify-center p-2 bg-white/20 rounded-full text-white mb-4">
                 <Info className="h-6 w-6" />
@@ -28,9 +30,6 @@ export default function AboutPage() {
                 Бидний зорилго бол инновацлаг заах арга, практик ур чадварын
                 хөгжүүлэлтээр дамжуулан Монголын боловсролыг хувиргах явдал юм.
               </p>
-              <Button className="bg-white text-[#1782e0] font-bold" size="lg">
-                БИДНИЙ ТҮҮХ
-              </Button>
             </div>
 
             {/* Decorative Elements */}
@@ -68,7 +67,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5 }}
               >
                 <Image
-                  src="https://scontent.fuln6-2.fna.fbcdn.net/v/t39.30808-6/473068913_122185570472088063_8032309013538541302_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=p6EYx9UrI5MQ7kNvwFV0tq_&_nc_oc=AdkvoxTwM7_KdkNVJD0dyEIGI6536JHspDj-v7uZDp-ID6eOfV74v_5KbQ6A6eYZlp4&_nc_zt=23&_nc_ht=scontent.fuln6-2.fna&_nc_gid=Oti22jDr-885zrzH3eZHmg&oh=00_AfIbjBIEtV3QLbXddgfIt_TImBwNTeCZS0kTilcWw12Kaw&oe=68233C67"
+                  src="https://scontent.fuln6-2.fna.fbcdn.net/v/t39.30808-6/480583924_122190456218088063_2674086794278031681_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=-1Jn5PfkDc0Q7kNvwEMtIY2&_nc_oc=Adk05sdNFrTo1b4BN6Rs8GFMLuIAV765OeYRChhZ1xR0rB1kjMSGgech-sCApKNV1Bk&_nc_zt=23&_nc_ht=scontent.fuln6-2.fna&_nc_gid=leUfQl9NRLf-TOJ6PKZu-w&oh=00_AfJ9wZ0EgdzUG-keQPIgK0UDzgLs7o293GMFipYH3PSJSA&oe=6831A46A"
                   width={600}
                   height={400}
                   alt="КоачЛаб Монгол кампус"
@@ -239,7 +238,6 @@ export default function AboutPage() {
     </div>
   );
 }
-
 // Value Card Component
 function ValueCard({ icon, title, description, index }) {
   return (

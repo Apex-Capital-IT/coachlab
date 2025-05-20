@@ -14,9 +14,9 @@ export default function Header() {
   const isMobile = useMobile();
   const { scrollY } = useScroll();
 
-  const headerOpacity = useTransform(scrollY, [0, 100], [1, 0.8]);
-  const headerWidth = useTransform(scrollY, [0, 100], ["100%", "95%"]);
-  const headerBlur = useTransform(scrollY, [0, 100], [0, 8]);
+  const headerWidth = useTransform(scrollY, [0, 100], ["100%", "55%"]);
+  const headerOpacity = useTransform(scrollY, [0, 20, 21, 100], [1, 1, 1, 1]);
+  const headerBlur = useTransform(scrollY, [0, 20, 21, 100], [0, 0, 0, 0]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,13 +33,13 @@ export default function Header() {
     <motion.header
       className={`fixed top-0 left-1/2 -translate-x-1/2 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-white/10 backdrop-blur-3xl shadow-md rounded-b-2xl"
-          : "bg-transparent"
+          ? "bg-white text-black shadow-md rounded-3xl mt-2"
+          : "bg-transparent text-black"
       }`}
       style={{
-        opacity: headerOpacity,
+        opacity: isScrolled ? 1 : headerOpacity,
         width: headerWidth,
-        backdropFilter: `blur(${headerBlur}px)`,
+        backdropFilter: isScrolled ? undefined : `blur(${headerBlur}px)`,
       }}
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -61,7 +61,7 @@ export default function Header() {
           </Button>
         ) : (
           <nav className="flex items-center space-x-8">
-            <NavLinks />
+            <NavLinks isScrolled={isScrolled} />
           </nav>
         )}
       </div>
@@ -69,13 +69,19 @@ export default function Header() {
       {/* Mobile menu */}
       {isMobile && mobileMenuOpen && (
         <motion.div
-          className="absolute top-full left-0 w-full bg-[white] shadow-lg rounded-b-2xl py-4"
+          className={`absolute top-full rounded-xl left-0 w-full shadow-lg py-4 ${
+            isScrolled ? "bg-white" : "bg-white"
+          }`}
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
         >
           <nav className="flex flex-col space-y-4 px-6">
-            <NavLinks mobile onClick={toggleMobileMenu} />
+            <NavLinks
+              mobile
+              onClick={toggleMobileMenu}
+              isScrolled={isScrolled}
+            />
           </nav>
         </motion.div>
       )}
@@ -84,10 +90,12 @@ export default function Header() {
 }
 
 // Navigation Links Component
-function NavLinks({ mobile = false, onClick = () => {} }) {
+function NavLinks({ mobile = false, onClick = () => {}, isScrolled = false }) {
   const linkClasses = mobile
-    ? "flex items-center py-2 text-foreground hover:text-[#2a7d5f] transition-colors"
-    : "hover:text-foreground text-blacks font-bold";
+    ? "flex items-center py-2 font-semibold text-black hover:text-[#2a7d5f] transition-colors"
+    : isScrolled
+    ? "text-black font-bold"
+    : "text-black font-bold";
 
   return (
     <>

@@ -20,16 +20,28 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap gap-6">
-            <Link href="/teachers" className="text-gray-600 hover:text-black">
+            <Link
+              href="/teachers"
+              className="text-gray-600 md:text-base text-xs hover:text-black"
+            >
               Teachers
             </Link>
-            <Link href="/classes" className="text-gray-600 hover:text-black">
+            <Link
+              href="/classes"
+              className="text-gray-600 md:text-base text-xs hover:text-black"
+            >
               Classes
             </Link>
-            <Link href="/about" className="text-gray-600 hover:text-black">
+            <Link
+              href="/about"
+              className="text-gray-600 md:text-base text-xs hover:text-black"
+            >
               About Us
             </Link>
-            <Link href="/contact" className="text-gray-600 hover:text-black">
+            <Link
+              href="/contact"
+              className="text-gray-600 md:text-base text-xs hover:text-black"
+            >
               Contact
             </Link>
           </div>
